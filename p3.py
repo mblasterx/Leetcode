@@ -19,6 +19,25 @@ class Solution:
 
         return maxLength
 
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        '''
+        Version 2 - sliding window
+        '''
+
+        maxLength = 0
+        l, r = 0, 0
+        substr = set()
+
+        while r < len(s):
+            while s[r] in substr:
+                substr.remove(s[l])
+                l+=1
+            substr.add(s[r])
+            maxLength = max(maxLength, len(substr))
+            r+=1 
+
+        return maxLength
+
     def test(self):
         testCases = {'aab':2, 'abcabcbb':3, 'bbbbb':1, 'pwwkew':3, '':0}
         for key,val in testCases.items():
