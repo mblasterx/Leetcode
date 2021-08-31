@@ -1,12 +1,7 @@
-# https://leetcode.com/problems/regular-expression-matching/
-
 class Solution:
-
-    def __init__(self):
-        pass
-
     def isMatch_recursive(self, s: str, p: str) -> bool:
         '''
+        https://leetcode.com/problems/regular-expression-matching/
         Returns true if the expression matches and false if not
         * = 0 or more of the previous character
         . = any 1 character
@@ -39,10 +34,13 @@ class Solution:
                     dp[i][j] = first_match and dp[i+1][j+1]
         return dp[0][0]
 
-s = Solution()
-a = 'abcccea'
-b = 'abd*c.*e.'
+    def test(self):
+        a = 'abcccea'
+        b = 'abd*c.*e.'
 
-# a = 'abcd'
-# b = 'ab.e'
-print(s.isMatch(a,b))
+        # a = 'abcd'
+        # b = 'ab.e'
+        print(s.isMatch(a,b))
+
+s = Solution()
+s.test()
