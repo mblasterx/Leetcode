@@ -3,40 +3,38 @@ class Solution:
     def longestPalindrome(self, s: str) -> str:
         '''Given a string s, returns the longest palindromic substring in s.
         '''
-        maxSlice = s[0]
-        # only works for even palindromes
-        for i in range(len(s)-1):
-            j = 0 # temp var that keeps track how many equal endspoints there are after a double character is founds
-            if s[i] == s[i+1]:
-                slice = s[i:i+2] # keeps track of the actual palindrome
-                while j<i and i+1+j<len(s)-1:
-                    if s[i-j] != s[i+1+j]:
-                        break
-                    else:
-                        slice = s[i-j] + slice + s[i-j]
-                    j +=1 
-            if len(maxSlice) < 2*j:
-                maxSlice = slice
-        
-        # odd palindromes 
-        for i in range(1,len(s)-1):
-            j = 0 # temp var 
-            if s[i-1] == s[i+1]:
-                slice = s[i-1:i+2] # keeps track of the current palindrome letters 
-                while j<i-1 and i+1+j<len(s)-1:
-                    if s[i-1-j] != s[i+1+j]:
-                        break
-                    else:
-                        slice = s[i-1-j] + slice + s[i-1-j] # update slice with new equal endpoints
-                    j +=1 
+        maxSlice = ''
 
-                if len(maxSlice) < 2*j+1:
-                    maxSlice = slice
+        for i in range(len(s)): # odd length palindromes can start at any character and expand to the left and right
+            currentMaxSlice = self.find_max_palindromic_slice(s, left = i, right = i)
+            if len(maxSlice) < len(currentMaxSlice):
+                maxSlice = currentMaxSlice
+
+        for i in range(0, len(s)): # even length palindromes 
+            currentMaxSlice = self.find_max_palindromic_slice(s, left = i, right = i+1)
+            if len(maxSlice) < len(currentMaxSlice):
+                maxSlice = currentMaxSlice 
 
         return maxSlice
 
-# not passing certain tests 
+    def find_max_palindromic_slice(self, s: str, left: int, right: int) -> str:
+        '''Find the max palindromic slice extending outwards from s[left:right+1] 
+        '''
+        currentSlice = ''
+        j = 0
+        while left-j>=0 and right+j<len(s):   # make sure we don't go outside the slice when we reach either left or right endpoints
+            if s[left-j] == s[right+j]: # if the endpoints are equal, they're part of the palindromic slice
+                if currentSlice == '': 
+                    currentSlice = s[left-j:right+j+1]
+                else:
+                    currentSlice = s[left-j] + currentSlice + s[right+j]
+            else:   # if the endpoints are different we're done with the loop
+                break
+            j+=1
+
+        return currentSlice
 
 s = Solution()
-testStr = 'ababa'
+testList = ['a', 'aa', 'aaa', 'abab', 'ababa', 'xaabaya', '987111', 'aabbxa']
+testStr = testList[-1]
 print(s.longestPalindrome(testStr))
