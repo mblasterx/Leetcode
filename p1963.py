@@ -5,8 +5,11 @@ class Solution:
         maxClosing = 0
         extraClosingBrackets = 0
         for char in s:
-            extraClosingBrackets += 1 if char == ']' else -1
-            maxClosing = max (maxClosing,extraClosingBrackets)
+            if char == ']':
+                extraClosingBrackets += 1
+                maxClosing = max (maxClosing,extraClosingBrackets)
+            else:
+                extraClosingBrackets -= 1
         return (maxClosing+1)//2
 
     def test(self):
