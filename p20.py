@@ -25,7 +25,13 @@ class Solution:
         return not len(stack)
 
     def test(self) -> None:
-        testCases = {"()":True, "()[]{}":True, "(]":False, "([)]":False, "{[]}":True}
+        testCases = {
+            "()":True, 
+            "()[]{}":True, 
+            "(]":False, 
+            "([)]":False, 
+            "{[]}":True
+        }
         for key,val in testCases.items():
             assert self.isValid(key) == val 
         print('All tests passed')

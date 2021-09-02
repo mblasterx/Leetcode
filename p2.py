@@ -1,5 +1,4 @@
 # https://leetcode.com/problems/add-two-numbers/
-# Fix git bug?
 # Definition for singly-linked list.
 class ListNode(object):
     def __init__(self, val=0, next=None):
@@ -33,10 +32,15 @@ class Solution(object):
             
         return sum
         
-
-a = [9,9,9,9,9,9,9] 
-b = [9,9,9,9]
-
+    def test(self) -> None:
+        testCases = {
+            ('9999999','9999'):'89990001',
+            ('0', '0'): '0',
+            ('243', '564'): '708',
+        }
+        for (l1,l2),result in testCases.items():
+            assert self.addTwoNumbers(list(map(int,l1)),list(map(int,l2))) == list(map(int,result))
+        print('All tests passed')
+    
 s = Solution()
-
-print(s.addTwoNumbers(a,b))
+s.test()
