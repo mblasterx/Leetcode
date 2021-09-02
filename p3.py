@@ -38,11 +38,18 @@ class Solution:
 
         return maxLength
 
-    def test(self):
-        testCases = {'aab':2, 'abcabcbb':3, 'bbbbb':1, 'pwwkew':3, '':0}
-        for key,val in testCases.items():
-            print('Test str: ' + key + ' returns ' + str(self.lengthOfLongestSubstring(key)) + ' and should return ' + str(val))
+    def test(self) -> None:
+        testCases = {
+            'aab':2, 
+            'abcabcbb':3, 
+            'bbbbb':1, 
+            'pwwkew':3, 
+            '':0,
+        }
 
+        for key,val in testCases.items():
+            assert self.lengthOfLongestSubstring(key) == val 
+        print('All tests passed')
 
 s = Solution()
 s.test()

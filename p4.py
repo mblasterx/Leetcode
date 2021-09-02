@@ -1,8 +1,8 @@
-# https://leetcode.com/problems/median-of-two-sorted-arrays/
 class Solution(object):
+    '''https://leetcode.com/problems/median-of-two-sorted-arrays/
+    '''
     def findMedianSortedArrays(self, nums1, nums2) -> float:
-        """
-        :type nums1: List[int]
+        """:type nums1: List[int]
         :type nums2: List[int]
         :rtype: float
         """
@@ -15,13 +15,26 @@ class Solution(object):
         else:
             return float(nums[totalNums//2])
 
+    def test(self) -> None:
+        # If we need to compare floats use 
+        # from math import isclose
 
+        testCases = {
+            ("1,2", "3,4")  :2.5,
+            ("1,3", "2")    :2.0,
+            ("0,0", "0,0")  :0.0,
+            ("", "1")       :1.0,
+            ("2", "")       :2.0,
+        }
 
-        
-from math import isclose
+        for (key1, key2),val in testCases.items():
+            # first turn the test strings into proper inputs in our problem function
+            nums1 = list(map(int, key1.replace(',', '')))   
+            nums2 = list(map(int, key2.replace(',', '')))
+
+            assert self.findMedianSortedArrays(nums1, nums2) == val 
+        print('All tests passed')
+
 
 s = Solution()
-nums1 = [1,2]
-nums2 = [3,4]
-print(s.findMedianSortedArrays(nums1, nums2))
-# print(isclose(s.findMedianSortedArrays(nums1, nums2), output))
+s.test()

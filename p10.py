@@ -1,7 +1,8 @@
 class Solution:
+    '''https://leetcode.com/problems/regular-expression-matching/
+    '''
     def isMatch_recursive(self, s: str, p: str) -> bool:
         '''
-        https://leetcode.com/problems/regular-expression-matching/
         Returns true if the expression matches and false if not
         * = 0 or more of the previous character
         . = any 1 character
@@ -21,7 +22,8 @@ class Solution:
         return False
 
     def isMatch(self, text, pattern):
-
+        '''
+        '''
         dp = [[False] * (len(pattern) + 1) for _ in range(len(text) + 1)] # initialize the dynamic programming array
 
         dp[-1][-1] = True
@@ -42,5 +44,15 @@ class Solution:
         # b = 'ab.e'
         print(s.isMatch(a,b))
 
+    def test(self) -> None:
+        testCases = {
+            ("abcccea", 'abd*c.*e.')    :True,      # we got a pattern match
+            ('abcd', 'ab.e')            :False,     # no match
+            ('asd2321asdsaevas', '.*')  :True,      # .* should match everything
+        }
+        for (text, pattern),val in testCases.items():
+            assert self.isMatch(text, pattern) == val
+        print('All tests passed')
+    
 s = Solution()
-s.test()
+s.test()   

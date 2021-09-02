@@ -1,7 +1,6 @@
-'''
-https://leetcode.com/problems/climbing-stairs/
-'''
 class Solution:
+    '''https://leetcode.com/problems/climbing-stairs/
+    '''
     def climbStairs(self, n: int) -> int:
         '''Returns the number of ways you can climb n stairs in increments of 1, 2
         Basically memoization of Fibonacci recurrence 
@@ -12,8 +11,17 @@ class Solution:
         for i in range(2,n+1):  # recurrence
             memo[i] = memo[i-1] + memo[i-2]
         return memo[n]
-        
-# simple test
+
+    def test(self) -> None:
+        testCases = {
+            10      :89,
+            1       :1,
+            0       :0,
+            5       :8,
+        }
+        for key,val in testCases.items():
+            assert self.climbStairs(key) == val 
+        print('All tests passed')
+    
 s = Solution()
-n = 10
-print(s.climbStairs(n))
+s.test()

@@ -1,7 +1,8 @@
 class Solution:
+    '''https://leetcode.com/problems/zigzag-conversion/
+    '''
     def convert(self, s: str, numRows: int) -> str:
         '''
-        https://leetcode.com/problems/zigzag-conversion/
         '''
         if numRows == 1: # basecase
             return s
@@ -31,16 +32,15 @@ class Solution:
 
         return outList
 
-
-    def test(self):
-        '''
-        Run the custom tests
-        '''
-        testCases = [('PAYPALISHIRING',3, 'PAHNAPLSIIGYIR'), ('PAYPALISHIRING',4, 'PINALSIGYAHRPI'), ('A',1, 'A')]
-        for inStr, numRows, outStr in testCases:
-            print('Test case ' + inStr + ' returns: ' + str(self.convert(inStr, numRows) == outStr))
-
-# checks the solution 
+    def test(self) -> None:
+        testCases = {
+            ('PAYPALISHIRING',3)    :'PAHNAPLSIIGYIR',
+            ('PAYPALISHIRING',4)    :'PINALSIGYAHRPI',
+            ('A',1)                 :'A',
+        }
+        for (key,numRows),val in testCases.items():
+            assert self.convert(key, numRows) == val
+        print('All tests passed')
+    
 s = Solution()
 s.test()
-

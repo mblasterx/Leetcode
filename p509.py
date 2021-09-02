@@ -1,6 +1,8 @@
 class Solution:
+    '''https://leetcode.com/problems/fibonacci-number/
+    '''
     def fib(self, n: int) -> int:
-        '''https://leetcode.com/problems/fibonacci-number/
+        '''Returns the n-th fibonacci number
         '''
         if n == 0:
             return 0
@@ -15,10 +17,16 @@ class Solution:
         return fibList[n]
 
     def test(self) -> None:
-        inputs = [0,2,3,4 ,5, 6,7]
-        outputs = [0, 1,2,3, 5, 8, 13]
-        for input, output in zip(inputs, outputs):
-            print(input, self.fib(input), output)
-
+        testCases = {
+            0               :0,
+            2               :1,
+            3               :2,
+            5               :5,
+            7               :13,
+        }
+        for key,val in testCases.items():
+            assert self.fib(key) == val 
+        print('All tests passed')
+    
 s = Solution()
 s.test()

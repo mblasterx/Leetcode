@@ -1,5 +1,6 @@
-# https://leetcode.com/problems/longest-palindromic-substring/
 class Solution:
+    '''https://leetcode.com/problems/longest-palindromic-substring/
+    '''
     def longestPalindrome(self, s: str) -> str:
         '''Given a string s, returns the longest palindromic substring in s.
         '''
@@ -34,7 +35,18 @@ class Solution:
 
         return currentSlice
 
+    def test(self) -> None:
+        testCases = {
+            "a"         :'a', 
+            "aa"        :'aa', 
+            "abab"      :'aba,bab',     # can be 'bab' too
+            "ababa"     :'ababa', 
+            "xaabaya"   :'aba,aya',     # can be 'aya' too
+        }
+        for key,val in testCases.items():
+            possibleValues = val.split(',') # check for multiple answers
+            assert self.longestPalindrome(key) in possibleValues 
+        print('All tests passed')       
+
 s = Solution()
-testList = ['a', 'aa', 'aaa', 'abab', 'ababa', 'xaabaya', '987111', 'aabbxa']
-testStr = testList[-1]
-print(s.longestPalindrome(testStr))
+s.test()

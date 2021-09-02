@@ -1,7 +1,9 @@
 from typing import List
 class Solution:
+    '''https://leetcode.com/explore/featured/card/top-interview-questions-easy/92/array/727/
+    '''
     def removeDuplicates(self, nums: List[int]) -> int:
-        '''https://leetcode.com/explore/featured/card/top-interview-questions-easy/92/array/727/
+        '''
         '''
         if len(nums) == 0:
             return 0
@@ -22,11 +24,16 @@ class Solution:
             # if they are equal nothing happens we move on   
         return numDiff 
 
-    def test(self):
-        inputs = [[1,1,2], [0,0,1,1,1,2,2,3,3,4], [1,2]]
-        outputs = [(2,[1,2]), (5,[0,1,2,3,4]), (2,[1,2])]
-        for i in range(len(inputs)):
-            print('test ' + str(i) + ': input=' + str(inputs[i]) + ' output:' + str(self.removeDuplicates(inputs[i])) + ', ' + str(inputs[i]) + ' expected is: ' + str(outputs[i]))      
+    def test(self) -> None:
+        testCases = {
+            "1,1,2"                 :2,     #[1,2]
+            "0,0,1,1,1,2,2,3,3,4"   :5,     #[0,1,2,3,4]
+            "1,2"                   :2,     #[1,2]
+        }
 
+        for key,val in testCases.items():
+            assert self.removeDuplicates(key.split(',') ) == val    # input has to be a list
+        print('All tests passed')
+    
 s = Solution()
 s.test()

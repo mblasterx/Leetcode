@@ -1,17 +1,6 @@
 class Solution:
-    def __init__(self):
-        pass
-
-    def fix_exceptions(self, input) -> str:
-        '''
-        Fixes the 6 exceptions in Roman numerals
-        '''
-        output = input
-        exceptionDict = {'VIIII':'IX', 'IIII': 'IV', 'LXXXX':'XC', 'XXXX': 'XL', 'DCCCC':'CM', 'CCCC':'CD'}
-        for key,value in exceptionDict.items():
-            output = output.replace(key, value)
-        return output
-
+    '''https://leetcode.com/problems/integer-to-roman/
+    '''
     def intToRoman(self, num: int) -> str:
         '''
         Returns a roman numeral from integer
@@ -25,7 +14,28 @@ class Solution:
         
         return self.fix_exceptions(output)
 
-s = Solution()
-print(s.intToRoman(1992))
+    def fix_exceptions(self, input) -> str:
+        '''
+        Fixes the 6 exceptions in Roman numerals
+        '''
+        output = input
+        exceptionDict = {'VIIII':'IX', 'IIII': 'IV', 'LXXXX':'XC', 'XXXX': 'XL', 'DCCCC':'CM', 'CCCC':'CD'}
+        for key,value in exceptionDict.items():
+            output = output.replace(key, value)
+        return output
 
-# worked!
+    def test(self) -> None:
+        testCases = {
+            3       :'III',
+            4       :'IV',
+            9       :'IX',
+            58      :'LVIII',
+            48      :'XLVIII',
+            1994    :'MCMXCIV',
+        }
+        for key,val in testCases.items():
+            assert self.intToRoman(key) == val 
+        print('All tests passed')
+    
+s = Solution()
+s.test()
