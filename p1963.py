@@ -13,13 +13,7 @@ class Solution:
             else:
                 extraClosingBrackets -= 1
         return (maxClosing+1)//2
-
-    def test(self):
-        inputs = []
-        outputs = [1,2,0,0]
-        for i in range(len(inputs)):
-            print('test ' + str(i) + ': input=' + inputs[i] + ' output:' + str(self.minSwaps(inputs[i])) + ' expected is: ' + str(outputs[i]))      
-
+        
     def test(self) -> None:
         testCases = {
             "][]["      :1,

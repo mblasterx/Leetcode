@@ -36,14 +36,6 @@ class Solution:
                     dp[i][j] = first_match and dp[i+1][j+1]
         return dp[0][0]
 
-    def test(self):
-        a = 'abcccea'
-        b = 'abd*c.*e.'
-
-        # a = 'abcd'
-        # b = 'ab.e'
-        print(s.isMatch(a,b))
-
     def test(self) -> None:
         testCases = {
             ("abcccea", 'abd*c.*e.')    :True,      # we got a pattern match
