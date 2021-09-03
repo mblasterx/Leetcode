@@ -5,7 +5,7 @@ class Solution:
         '''Given a non-negative integer x, compute and return the square root of x.
         Since the return type is an integer, the decimal digits are truncated, and only the integer part of the result is returned.
         '''
-        i = 0
+        i = 1
         while i*i <= x:
             i+=1
         return i-1
@@ -17,6 +17,7 @@ class Solution:
             8       :2,
             15      :3,
             9       :3,
+            0       :0,
         }
         for key,val in testCases.items():
             assert self.mySqrt(key) == val 
