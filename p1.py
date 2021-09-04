@@ -15,19 +15,12 @@ class Solution:
         # -109 <= nums[i] <= 109
         # -109 <= target <= 109
         testCases = [
-            [2,7,11,15,         9],
-            [3,2,4,             6],
-            [3,3,               6],
+            ([2,7,11,15],   9,  [0,1]),
+            ([3,2,4],       6,  [1,2]),
+            ([3,3],         6,  [0,1]),
         ]
-        testResults = [
-            [0,1],
-            [1,2],
-            [0,1],
-        ]
-        for i in range(len(testCases)):
-            nums = testCases[i]
-            target = nums.pop()
-            expectedResult = testResults[i]
+        
+        for (nums, target, expectedResult) in testCases:
             assert self.twoSum(nums,target) == expectedResult, (nums, target, self.twoSum(nums,target), expectedResult)
         print('All tests passed')
     
