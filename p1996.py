@@ -6,13 +6,12 @@ class Solution:
         '''Brute force, first attempt
         '''
         def is_weak(char1: List[int], char2: List[int]) -> int:
-            '''Returns 1 if char1 is weak, -1 if char2 is weak, 0 if none are weak
+            '''Returns 1 if char1 is weak vs char2, None otherwise
             '''
             if (char1[1] < char2[1] and char1[0] < char2[0]):
                 return 1
 
-        # properties.sort()
-        # numWeak = [0 for _ in range(len(properties))]
+        properties.sort()
         numWeak = 0
         for i in range(len(properties)):
             for j in range(len(properties)):
@@ -29,7 +28,7 @@ class Solution:
         '''More efficient attempt
         '''
         properties.sort(key=lambda x:(-x[0], x[1])) # decreasing by the attack, increasing by the defense with attack is the same
-        # this means an element cannot be weaker than any elements to its right, so we only look to the left to see if current element is weak as we parse the sorted list
+        # this means an player cannot be weaker than any players to its right, so we only look to the left to see if current player is weak as we parse the sorted list
         numWeak = 0
         maxCurrent = 0
         for attack, defense in properties: 
