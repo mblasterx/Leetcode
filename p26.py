@@ -1,6 +1,6 @@
 from typing import List
 class Solution:
-    '''https://leetcode.com/explore/featured/card/top-interview-questions-easy/92/array/727/
+    '''https://leetcode.com/problems/remove-duplicates-from-sorted-array/
     '''
     def removeDuplicates(self, nums: List[int]) -> int:
         '''
