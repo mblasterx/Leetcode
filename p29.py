@@ -46,5 +46,9 @@ class Solution:
             assert self.divide(divident, divisor) == val 
         print('All tests passed')
     
-s = Solution()
-s.test()
+def main():
+    s = Solution()
+    s.test()
+
+if __name__ == '__main__':
+    main()

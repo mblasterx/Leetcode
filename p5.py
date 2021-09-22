@@ -48,5 +48,9 @@ class Solution:
             assert self.longestPalindrome(key) in possibleValues 
         print('All tests passed')       
 
-s = Solution()
-s.test()
+def main():
+    s = Solution()
+    s.test()
+
+if __name__ == '__main__':
+    main()

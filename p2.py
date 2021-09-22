@@ -44,5 +44,9 @@ class Solution(object):
             assert self.addTwoNumbers(list(map(int,l1)),list(map(int,l2))) == list(map(int,result))
         print('All tests passed')
     
-s = Solution()
-s.test()
+def main():
+    s = Solution()
+    s.test()
+
+if __name__ == '__main__':
+    main()

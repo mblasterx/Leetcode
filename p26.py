@@ -35,5 +35,9 @@ class Solution:
             assert self.removeDuplicates(key.split(',') ) == val    # input has to be a list
         print('All tests passed')
     
-s = Solution()
-s.test()
+def main():
+    s = Solution()
+    s.test()
+
+if __name__ == '__main__':
+    main()

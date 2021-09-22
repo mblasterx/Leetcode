@@ -46,5 +46,9 @@ class Solution:
             assert self.mergeTwoLists(l1,l2) == expectedResult, (l1, l2, expectedResult, self.mergeTwoLists(l1,l2))
         print('All tests passed')
     
-s = Solution()
-s.test()
+def main():
+    s = Solution()
+    s.test()
+
+if __name__ == '__main__':
+    main()

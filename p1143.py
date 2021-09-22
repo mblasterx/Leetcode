@@ -33,5 +33,9 @@ class Solution:
             assert self.longestCommonSubsequence(text1,text2) == expectedResult , (text1, text2, expectedResult, self.longestCommonSubsequence(text1,text2))
         print('All tests passed')
     
-s = Solution()
-s.test()
+def main():
+    s = Solution()
+    s.test()
+
+if __name__ == '__main__':
+    main()

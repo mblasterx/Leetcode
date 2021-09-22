@@ -24,5 +24,9 @@ class Solution:
             assert self.twoSum(nums,target) == expectedResult, (nums, target, self.twoSum(nums,target), expectedResult)
         print('All tests passed')
     
-s = Solution()
-s.test()   
+def main():
+    s = Solution()
+    s.test()
+
+if __name__ == '__main__':
+    main() 

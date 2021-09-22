@@ -31,5 +31,9 @@ class Solution:
             assert self.longestCommonPrefix(testList[key]) == val, testList[key]
         print('All tests passed')
     
-s = Solution()
-s.test()     
+def main():
+    s = Solution()
+    s.test()
+
+if __name__ == '__main__':
+    main()
